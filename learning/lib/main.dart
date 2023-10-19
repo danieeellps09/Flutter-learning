@@ -28,21 +28,26 @@ class PerguntaAppState extends State<PerguntaApp> {
     });
   }
 
+
+  bool get temPerguntaSelecionada () {
+    return _perguntaSelecionada < perguntas.length;
+  }
+
   @override
   Widget build(BuildContext context) {
-    List<String> respostas =
-        perguntas[_perguntaSelecionada]['resposta'] as List<String>;
+    List<String> respostas = temPerguntaSelecionada ?
+        perguntas[_perguntaSelecionada]['resposta'] as List<String> : [];
     // ignore: unused_local_variable
 
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(title: const Text('Vamos construir uma lista')),
-        body: Column(
+        body: temPerguntaSelecionada ? Column(
           children: <Widget>[
             Questao(perguntas[_perguntaSelecionada]['texto'] as String),
             ...respostas.map((t) => Resposta(t, _responder)),
           ],
-        ),
+        ): null,
       ),
     );
   }
