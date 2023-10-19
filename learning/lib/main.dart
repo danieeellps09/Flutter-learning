@@ -3,7 +3,7 @@ import 'package:learning/Questao.dart';
 import 'package:learning/Resposta.dart';
 
 void main() {
-  runApp(PerguntaApp());
+  runApp(const PerguntaApp());
 }
 
 class PerguntaAppState extends State<PerguntaApp> {
@@ -30,25 +30,27 @@ class PerguntaAppState extends State<PerguntaApp> {
 
   @override
   Widget build(BuildContext context) {
-    List<Widget> respostas = [];
-    for (String txtResposta
-        in perguntas[_perguntaSelecionada]['resposta'] as List<String>) {
-      respostas.add(Resposta(txtResposta, _responder));
-    }
+    List<String> respostas =
+        perguntas[_perguntaSelecionada]['resposta'] as List<String>;
+    // ignore: unused_local_variable
 
     return MaterialApp(
       home: Scaffold(
-          appBar: AppBar(title: const Text('Vamos construir uma lista')),
-          body: Column(children: <Widget>[
+        appBar: AppBar(title: const Text('Vamos construir uma lista')),
+        body: Column(
+          children: <Widget>[
             Questao(perguntas[_perguntaSelecionada]['texto'] as String),
-            ...respostas
-          ])),
+            ...respostas.map((t) => Resposta(t, _responder)),
+          ],
+        ),
+      ),
     );
   }
 }
 
-/
 class PerguntaApp extends StatefulWidget {
+  const PerguntaApp({super.key});
+
   @override
   PerguntaAppState createState() {
     return PerguntaAppState();
