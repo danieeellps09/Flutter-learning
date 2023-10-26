@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+// ignore: unused_import
 import 'package:learning/Questao.dart';
 import 'package:learning/Questionario.dart';
+import 'package:learning/Resultado.dart';
 
 void main() {
   runApp(const PerguntaApp());
@@ -43,10 +45,13 @@ class PerguntaAppState extends State<PerguntaApp> {
       home: Scaffold(
         appBar: AppBar(title: const Text('Vamos construir uma lista')),
         body: temPerguntaSelecionada
-            ? Questionario(perguntas: perguntas, perguntaSelecionada: _perguntaSelecionada, responder: _responder),                
-              )
-            : Resultado();
+            ? Questionario(
+                perguntas: perguntas,
+                perguntaSelecionada: _perguntaSelecionada,
+                responder: _responder)
+            : Resultado(),
       ),
+    );
   }
 }
 

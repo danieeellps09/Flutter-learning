@@ -7,8 +7,9 @@ class Questionario extends StatelessWidget {
   final int perguntaSelecionada;
   final void Function() responder;
 
-  Questionario(
-      {required this.perguntas,
+  const Questionario(
+      {super.key,
+      required this.perguntas,
       required this.perguntaSelecionada,
       required this.responder});
 
@@ -16,6 +17,7 @@ class Questionario extends StatelessWidget {
     return perguntaSelecionada < perguntas.length;
   }
 
+  // ignore: annotate_overrides
   Widget build(BuildContext context) {
     @override
     List<String> respostas = temPerguntaSelecionada
