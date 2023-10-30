@@ -14,11 +14,21 @@ class PerguntaAppState extends State<PerguntaApp> {
   final perguntas = [
     {
       'texto': 'Qual seu animal favorito?',
-      'resposta': ['gato', 'cachorro', 'girafa', 'camelo']
+      'resposta': [
+        {'texto': 'gato', 'nota': 2},
+        {'texto': 'cachorro', 'nota': 10},
+        {'texto': 'girafa', 'nota': 4},
+        {'texto': 'camelo', 'nota': 7}
+      ]
     },
     {
       'texto': 'Qual sua cor favorita?',
-      'resposta': ['vermelho', 'preto', 'verde', 'azul']
+      'resposta': [
+        {'texto': 'vermelho', 'nota': 8},
+        {'texto': 'preto', 'nota': 10},
+        {'texto': 'verde', 'nota': 9},
+        {'texto': 'azul', 'nota': 5}
+      ]
     }
   ];
 
@@ -36,9 +46,6 @@ class PerguntaAppState extends State<PerguntaApp> {
 
   @override
   Widget build(BuildContext context) {
-    List<String> respostas = temPerguntaSelecionada
-        ? perguntas[_perguntaSelecionada]['resposta'] as List<String>
-        : [];
     // ignore: unused_local_variable
 
     return MaterialApp(

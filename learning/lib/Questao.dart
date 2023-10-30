@@ -1,3 +1,4 @@
+// ignore: file_names
 import 'package:flutter/material.dart';
 
 class Questao extends StatelessWidget {
@@ -12,6 +13,7 @@ class Questao extends StatelessWidget {
       margin: const EdgeInsets.all(10),
       child: Text(
         text,
+        // ignore: prefer_const_constructors
         style: TextStyle(fontSize: 38),
         textAlign: TextAlign.center,
       ),
