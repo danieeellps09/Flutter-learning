@@ -10,7 +10,7 @@ void main() {
 
 class PerguntaAppState extends State<PerguntaApp> {
   var _perguntaSelecionada = 0;
-
+  var _pontuacaoTotal = 0;
   final perguntas = [
     {
       'texto': 'Qual seu animal favorito?',
@@ -33,10 +33,11 @@ class PerguntaAppState extends State<PerguntaApp> {
   ];
 
   // This widget is the root of your application.
-  void _responder() {
+  void _responder(int pontuacao) {
     // ignore: avoid_print
     setState(() {
       _perguntaSelecionada++;
+      _pontuacaoTotal += pontuacao;
     });
   }
 
