@@ -1,10 +1,21 @@
 import 'package:flutter/material.dart';
 
 class Resposta extends StatelessWidget {
-  final String resposta;
-  final void Function() quandoSelecionado;
+  final int pontuacao;
 
-  const Resposta(this.resposta, this.quandoSelecionado, {super.key});
+  const Resposta(this.pontuacao);
+
+  String get resultadoDaFrase {
+    if (pontuacao > 0) {
+      return "Parabéns";
+    } else if (pontuacao < 12) {
+      return 'Você é bom';
+    } else if (pontuacao < 16) {
+      return 'Você é incrivel';
+    } else {
+      return 'nivel master';
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +26,7 @@ class Resposta extends StatelessWidget {
           backgroundColor: Colors.blue, // Change the button's background color
           foregroundColor: Colors.white,
         ),
-        onPressed: quandoSelecionado,
+        onPressed,
         child: Text(resposta),
       ),
     );
