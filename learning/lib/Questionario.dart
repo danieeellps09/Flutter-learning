@@ -31,7 +31,7 @@ class Questionario extends StatelessWidget {
         Questao(perguntas[perguntaSelecionada]['texto'] as String),
         ...respostas
             .map((resp) => Resposta(resp['texto'] as String,
-                () => quandoResponder(resp['pontuacao'] as int)))
+                () => quandoResponder(resp['nota'] as int)))
             .toList(),
       ],
     );
